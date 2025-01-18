@@ -223,13 +223,13 @@ if (filesSelected.length > 0) {
 
 }
 fileImage.addEventListener("change",(e)=>{
-    console.log("imagen cargada...", fileImage.files[0]);
+  
         //validar tipo de dato solo image
     let archivoImage=fileImage.files[0];
    let validacionArchivo= validarTipoArchivo(archivoImage);
-   console.log("valkidacion",validacionArchivo);
+  
    if(validacionArchivo){
-    console.log("paso validacion", validacionArchivo);
+   
     encodeImageFileAsURL();
    }
 
@@ -280,11 +280,11 @@ try{
     let aux=1;
     if(filesSelected.length<=0 ){
         aux=0;
-        fileImage.style="border: 1px solid red";
+        fileImage.style="border: 2px solid red";
     }
     if(txtPreguntaImage.value==""){
         aux=0;
-        txtPreguntaImage.style="border: 1px solid red";
+        txtPreguntaImage.style="border: 2px solid red";
     }
 
     if(aux==0){
@@ -292,32 +292,58 @@ try{
         return;
     }
 
-    let urlConsultarImage=`${urlAPI}consultarByImage`;
-
-    const urlPostImage= new  Request(urlConsultarImage);
-           // preguntaai: txtPreguntaImage.value
-
-    let formbody=new FormData();
-    formbody.append("file0",fileImage.files[0]);
-    formbody.append("preguntaai",txtPreguntaImage.value);
-    const optionsImage = {
+    let urluploadImage=`${urlAPI}subir-imagen`;
+    const urlPostImagePost= new  Request(urluploadImage);
+    let fomrImagenLoad= new FormData();
+    fomrImagenLoad.append("file0",fileImage.files[0]);
+    const optionsUploadImage = {
         method: "POST",
-        body: formbody
+        body: fomrImagenLoad
     };
-    const response= await fetch(urlPostImage,optionsImage);
-    const data= await response.json();
-    if(data){
-        //if(data.estado=="success"){
-        //data.resultadoIA.content;
-            let resultadoMensaje= data.resultadoIA.content;
-           if(resultadoMensaje!=="" && resultadoMensaje){
-            respuestaIA.innerHTML=resultadoMensaje;//resultadoMensaje;
-           }else{
-            respuestaIA.innerHTML="No se encontro nada acerca del tema";
-           }
-           
-       // }
+    const responseSubida= await fetch(urlPostImagePost,optionsUploadImage);
+    const datauploadImage= await responseSubida.json();
+
+    if(!datauploadImage){
+        alert("No se cargo correctamente la imagen");
+        return false;
     }
+
+    if(datauploadImage){
+        const {imagenfile} =datauploadImage;
+        const {filename}=imagenfile;
+
+        if(filename){
+
+            /*Pregunta a la ia sobre la imagen */
+            let urlConsultarImage=`${urlAPI}consultarByImage`;
+            const urlPostImage= new  Request(urlConsultarImage);
+           let objbodyConsulta={
+            preguntaai: txtPreguntaImage.value,
+            archivo: String(filename)
+           };
+           console.log("objeto consulta",objbodyConsulta);
+            const optionsImage = {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(objbodyConsulta)
+            };
+            const response= await fetch(urlPostImage,optionsImage);
+            const data= await response.json();
+            if(data){
+                let resultadoMensaje= data.resultadoIA.content;
+                if(resultadoMensaje!=="" && resultadoMensaje){
+                    respuestaIA.innerHTML=resultadoMensaje;
+                }else{
+                    respuestaIA.innerHTML="No se encontro nada acerca del tema";
+                }
+            }
+        }
+    }
+
+    
  
 }catch(error){
 
