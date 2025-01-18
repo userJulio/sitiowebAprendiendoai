@@ -103,7 +103,48 @@ function MenuDesplegable(){
     }
 }
 
+const title2=document.querySelector('.title-info2');
+const contentMejoras=document.querySelector(".content-mejoras");
+const cardVentajas=document.querySelector(".content-ventajas");
+const mensajeChat=document.querySelector(".mensaje-empezarchatgpt");
+const listcoursos=document.querySelector(".list-courses");
 
+const observer=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){
+        console.log("Ya esta visible titulo 2");
+        title2.classList.add("animate__animated","animate__fadeInDown");
+    }
+});
+const observer2= new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){
+        contentMejoras.classList.add("animate__animated","animate__zoomInDown");
+    }
+    // if(!entries[0].isIntersecting){
+    //     contentMejoras.classList.remove("animate__animated","animate__zoomInDown");
+    // }
+});
 
+const observer3= new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){
+        cardVentajas.classList.add("animate__animated","animate__zoomInUp");
+    }
+});
+
+const observer4= new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){
+        mensajeChat.classList.add("animate__animated","animate__zoomInUp");
+    }
+});
+const observer5= new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){
+        listcoursos.classList.add("animate__animated","animate__bounceInUp");
+    }
+});
+
+observer.observe(title2);
+observer2.observe(contentMejoras);
+observer3.observe(cardVentajas);
+observer4.observe(mensajeChat);
+observer5.observe(listcoursos);
 /*cursos js */
 

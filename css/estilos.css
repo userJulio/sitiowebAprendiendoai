@@ -4,20 +4,140 @@
     padding: 0;
 }
 :root{
-    --bgcolor-body: #195D84;
+    --bgcolor-body: #195D84 ; /* #195D84;*/
     --bgcolor-contenido:#121725;
+    --bgcolor-footer-menu: #202B46;
+    --bgcolor-marketing: #f6e9f5;
+    --bgcolor-border-texto: #F6F9FC;
+    --bgcolor-title:#02112A;
+    --bgcolor-card: #367391;
+    --bgcolor-title-card: #ff6e65;
 }
 
 header.header-home{
     min-height: 80px;
-    background-color:  var(--bgcolor-body);
+    background-color:  var(--bgcolor-footer-menu);
     display: flex;
     flex-direction: column;
     color: #fff;
     align-items: flex-end;
     justify-content: center;
+    position: sticky;
+    top: 0px;
+    z-index: 3;
 
 }
+.contetn-info-chatgpt{
+    display: flex ;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--bgcolor-body);
+}
+.content-infor2-chatgpt {
+    width: 100%;
+    background-color: var(--bgcolor-body);
+}
+.title-info2 {
+    margin-top: 20px;
+}
+.content-info2 {
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        min-height: 550px;
+        justify-content: center;
+}
+.content-mejoras {
+    display: flex;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 30px;
+        width: 90%;
+}
+.content-mejoras-box {
+    width: 400px !important;
+    border: 1px solid  var(--bgcolor-card);
+    background-color: var(--bgcolor-card);
+    border-radius: 10px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -webkit-box-shadow: 10px 13px 21px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 13px 21px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 13px 21px -11px rgba(0, 0, 0, 0.75);
+}
+.title-informacion {
+    margin-top: 20px;
+}
+h3.h3-informacion {
+    color: #fdf2f2;
+    font-weight: bold;
+}
+p.parrafo-informacion {
+    line-height: 28px;
+    font-size: 18px;
+    color: #fff;
+}
+.title-info2 > h2 {
+    color: var(--bgcolor-title-card);
+    font-weight: bold;
+}
+.content-texto {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    min-height: 450px;
+    align-items: center;
+}
+.content-parrafo {
+    margin-top: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+h1.title-h1-chatgpt {
+   color: var(--bgcolor-title-card);
+   font-weight: bold;
+}
+p.detalle-chatgpt {
+    text-align: justify;
+    line-height: 28px;
+    font-size: 18px;
+    color:#fff;
+}
+
+
+.content-index-chatgpt {
+    width: 45%;
+    background-color: var(--bgcolor-card);
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 0px 22px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 0px 22px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 0px 22px -11px rgba(0, 0, 0, 0.75);
+    padding: 10px;
+}
+.content-index-image-chatgpt {
+    width: 55%;
+}
+
+.image-fondo-chatgpt {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+img.img-aspectobasico-chatgpt {
+    width: 84%;
+    border-radius: 10px;
+    height: 310px;
+    -webkit-box-shadow: 10px 9px 19px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 9px 19px -6px rgba(0,0,0,0.75);
+    box-shadow: 10px 9px 19px -6px rgba(0,0,0,0.75);
+}
+
 .iconnavbar {
     width: 40px;
     height: 40px;
@@ -63,7 +183,7 @@ a.nav-link {
 }
 footer.footer {
     min-height: 100px;
-    background:  var(--bgcolor-body);
+    background-color:  #202B46;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,8 +232,7 @@ h1.title-mensaje {
 }
 .tab-content-cursos{
     min-height: 700px;
-    background-color: #fff;
-
+    background-color: #1b1c1f;
 }
 .content-tab-texto {
     width: 90%;
@@ -123,11 +242,10 @@ h1.title-mensaje {
 }
 .chat-content {
     margin-top: 20px;
-    min-height: 560px;
+    height: 500px;
     background-color: #6f7aaf;
     border-radius: 10px;
     overflow-y: scroll;
-    height: 400px;
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
@@ -140,7 +258,10 @@ h1.title-mensaje {
     padding-top: 10px;
     padding-right: 15px;
     color: #fff;
-    width: 80%;
+    width: 100%;
+    -webkit-box-shadow: 18px 20px 24px -11px rgba(0,0,0,0.75);
+-moz-box-shadow: 18px 20px 24px -11px rgba(0,0,0,0.75);
+box-shadow: 18px 20px 24px -11px rgba(0,0,0,0.75);
 }
 .chat-ia  > h6{
     font-size: 20px;
@@ -166,12 +287,31 @@ h1.title-mensaje {
     padding-top: 5px;
 }
 .chat-ia  > p,.chat-person > p{
-  font-size: 18px;
+  font-size: 15px;
+}
+.chat-ia > pre{
+    white-space: pre-wrap;
+    font-size: 15px;
+    text-align: justify;
 }
 .row.row-chat {
     margin-top: 15px;
 }
-
+pre.texto-chatImage{
+    white-space: pre-wrap;
+    color: #fff;
+    font-size: 16px;
+}
+.row.row-consulta {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 15px;
+}
+.col-12.content-chat-consulta {
+    display: flex;
+    gap: 11px;
+    flex-direction: row;
+}
 .chat-person {
     background-color: #162e4a;
     border-radius: 10px;
@@ -184,6 +324,9 @@ h1.title-mensaje {
     align-items: flex-end;
     color: #fff;
     width: 80%;
+    -webkit-box-shadow: 18px 20px 24px -11px rgba(0,0,0,0.75);
+-moz-box-shadow: 18px 20px 24px -11px rgba(0,0,0,0.75);
+box-shadow: 18px 20px 24px -11px rgba(0,0,0,0.75);
 }
 .chat-person-content {
     display: flex;
@@ -191,13 +334,14 @@ h1.title-mensaje {
 }
 nav#navbar-menu {
     width: 100%;
-    background-color: var(--bgcolor-body) !important;
+    background-color: var(--bgcolor-footer-menu) !important;
     display: flex;
     justify-content: flex-end;
 }
 #navbar-menu ul{
     list-style: none;
 }
+
 
 /* items del menu */
 
@@ -268,22 +412,49 @@ ul.ul-menu {
 .card.card-mat {
     background-color: #4e75ab;
     cursor: pointer;
+    transition: transform 1.5s ease-in-out;
+    -webkit-box-shadow: 10px 13px 25px -11px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 13px 25px -11px rgba(0,0,0,0.75);
+box-shadow: 10px 13px 25px -11px rgba(0,0,0,0.75);
 }
 
 .card.card-hist {
     background-color: #4e75ab;
     cursor: pointer;
+    transition: transform 1.5s ease-in-out;
+    -webkit-box-shadow: 10px 13px 25px -11px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 13px 25px -11px rgba(0,0,0,0.75);
+box-shadow: 10px 13px 25px -11px rgba(0,0,0,0.75);
 }
 
 .card.card-leng {
     background-color: #4e75ab;
     cursor: pointer;
+    transition: transform 1.5s ease-in-out;
+    -webkit-box-shadow: 10px 13px 25px -11px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 13px 25px -11px rgba(0,0,0,0.75);
+box-shadow: 10px 13px 25px -11px rgba(0,0,0,0.75);
 }
 .card.card-cie {
     background-color: #4e75ab;
     cursor: pointer;
+    transition: transform 1.5s ease-in-out;
+    -webkit-box-shadow: 10px 13px 25px -11px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 13px 25px -11px rgba(0,0,0,0.75);
+box-shadow: 10px 13px 25px -11px rgba(0,0,0,0.75);
 }
-
+.card.card-mat:hover{
+    transform: scale(1.05);
+}
+.card.card-leng:hover{
+    transform: scale(1.05);
+}
+.card.card-cie:hover{
+    transform: scale(1.05);
+}
+.card.card-hist:hover{
+    transform: scale(1.05);
+}
 
 h5.card-title.title-curso-card {
     text-align: center;
@@ -307,6 +478,13 @@ p.card-text.desripction-card {
     height: 120px;
     text-align: justify;
     color: #fff;
+    font-size: 18px;
+    line-height: 26px;
+}
+h3.title-mensaje-empiezaia{
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
 }
 
 .btn-content {
@@ -332,6 +510,16 @@ button#nav-profile-tab {
     font-size: 17px;
     color: #fff;
 }
+label.form-label.label-image{
+    color:#fff;
+}
+.col-12.respuestaImage > h6{
+    color: #fff;
+}
+.col-12.respuestaImage{
+    margin-top: 15px;
+    padding-left: 15px;
+}
 
 .content-chat-image {
     margin: 0 auto;
@@ -350,7 +538,7 @@ button#nav-profile-tab {
 }
 .chat-image {
     min-height: 300px;
-    border: 1px solid;
+    border: 1px solid #fff;
     border-radius: 10px;
     padding: 10px;
 }
@@ -380,7 +568,7 @@ img#imgloadImage {
 .title-ventajas-ia >h2{
     font-size: 40px;
     font-weight: bold;
-    color: #fff;
+    color: var(--bgcolor-title-card);
 }
 
 .content-ventajas {
@@ -392,20 +580,31 @@ img#imgloadImage {
         flex-wrap: wrap;
 }
 .ventajas {
-    width: 330px;
-    height: 400px;
+    width: 400px;
+    height: 450px;
     border: 2px solid #367391;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     background-color: #367391;
+    transition: transform 2s ease-in-out;
+    cursor: pointer;
+    -webkit-box-shadow: 10px 13px 21px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 13px 21px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 13px 21px -11px rgba(0, 0, 0, 0.75);
 }
+.ventajas:hover{
+    transform: scale(1.05);
+    transition: transform 2.05s ease-in-out;
+}
+
 .title-ventajas {
-    height: 40px;
+    min-height: 40px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 15px;
 }
 .img-ventajas {
     width: 100%;
@@ -418,8 +617,8 @@ img#imgloadImage {
     width: 100%;
     height: 160px;
     margin-top: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 .img-ventajas > img {
     width: 200px;
@@ -428,12 +627,11 @@ img#imgloadImage {
     transition: width 2s;
 }
 .img-ventajas > img:hover{
-    width: 100%;
+    width: 80%;
     height: 200px;
     border-radius: 10px;
 }
-.title-ventajas >h6{
-    font-size: 20px;
+.title-ventajas >h3{
     color: #ff6e65;
     font-weight: bold;
 }
@@ -441,10 +639,11 @@ img#imgloadImage {
 
 .mensaje-empezarchatgpt {
     margin-top: 20px;
-    min-height: 50px;
+    min-height: 130px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 .mensaje-empezarchatgpt >p{
     font-size: 20px;
@@ -453,10 +652,12 @@ img#imgloadImage {
     text-align: center;
 }
 .content-description-ventaja > p{
-    font-size: 17px;
+    font-size: 18px;
     color: #faeffc;
     text-align: justify;
+    line-height: 27px;
 }
+
 
 @media (min-width:992px) and (max-width:1200px){
 
@@ -469,13 +670,32 @@ img#imgloadImage {
 @media (min-width:768px) and (max-width:992px){
     h1#title-mensajebanner1 , h1#title-mensajebanner, h1#title-mensajebanner2{
         position: absolute;
-        left: 10%;
+        left: 0px;
     }
     #btn-content-row{
         display: flex;
         flex-direction: column;
         gap: 15px;
        }
+    #content-texto{
+        display: flex;
+        flex-direction: column;
+    }
+    #content-index-chatgpt{
+        width: 90%;
+        margin-top: 20px;
+    }
+    #content-index-image-chatgpt{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    #image-fondo-chatgpt{
+        width: 90%;
+    }
+    img#img-aspecto-basicp-chatgpt{
+        width: 100%;
+    }
 
 }
 
@@ -491,6 +711,7 @@ img#imgloadImage {
    }
    #title-mensajebanner, #title-mensajebanner1,#title-mensajebanner2{
     font-size: 60px;
+    left: 20px;
 }
 button#enviar-imageIA {
     width: 100%;
@@ -511,6 +732,32 @@ div#btn-chat-images {
 ul#ul-menu-responsive{
     width: 100%;
 }
+#content-chat-consulta{
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+#content-texto{
+    display: flex;
+    flex-direction: column;
+}
+#content-index-chatgpt{
+    width: 90%;
+    margin-top: 20px;
+}
+#content-index-image-chatgpt{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#image-fondo-chatgpt{
+    width: 90%;
+}
+img#img-aspecto-basicp-chatgpt{
+    width: 100%;
+}
+
 
 }
 
@@ -526,6 +773,7 @@ ul#ul-menu-responsive{
        }
     #title-mensajebanner, #title-mensajebanner1,#title-mensajebanner2{
         font-size: 50px;
+        left: 0px;
     }
     button#enviar-imageIA {
         width: 100%;
@@ -544,8 +792,48 @@ ul#ul-menu-responsive{
     ul#ul-menu-responsive{
         width: 100%;
     }
+    #content-chat-consulta{
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+    }
+    #content-texto{
+        display: flex;
+        flex-direction: column;
+    }
+    #content-index-chatgpt{
+        width: 100%;
+        margin-top: 20px;
+    }
+    #content-index-image-chatgpt{
+        width: 100%;
+    }
+    img#img-aspecto-basicp-chatgpt{
+        width: 100%;
+    }
 }
 
+.container-main {
+    background-color: #f6e9f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* align-items: flex-start; */
+    align-items: space-between;
+    justify-content: space-between;
+}
+.menu-header{
+    height: 90px;
+    background-color: #202B46;
+}
+.container-blog {
+    background: #fff;
+    margin: 0 auto;
+    width: 78%;
+    min-height: 100vh;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
 .loader {
     color: #000;

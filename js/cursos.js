@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded",()=>{
     ObtenerDatosCursos();
     cargarStorageChat();
+    localStorage.setItem("Prueba-ia","esta es una de local storage!!");
 
 });
 
@@ -14,7 +15,7 @@ const idcurso = urlParams.get('idCurso')
 console.log(idcurso);
 
 const btnEnviarMensajeAI=document.querySelector("#enviar-consulta");
-const urlAPI='http://localhost:4001/';
+const urlAPI='http://webapitest.aprendiendoconia-chatgpt.com/';
 const textConsultaAPI=document.querySelector("#pregunta");
 const chatContent=document.querySelector("#chatAI-content");
 const limpiarChat=document.querySelector("#btn-limpar-chat");
@@ -24,6 +25,7 @@ const dataCurso= (idcurso)?cursosApi.filter((x)=>{
     return   x.id==idcurso;
   })[0]: '';
 const keyStorage=(idcurso)?idcurso+"-chat":"";
+const getElementosStorage= (localStorage.getItem(keyStorage))?  JSON.parse(localStorage.getItem(keyStorage)): [];
 
 function ObtenerDatosCursos(){
 
@@ -53,7 +55,7 @@ function ObtenerDatosCursos(){
 btnEnviarMensajeAI.addEventListener('click',()=>{
     enviarConsultaAPI();
 });
-let arrayStorageChat=[];
+let arrayStorageChat= getElementosStorage;
 async function enviarConsultaAPI(){
    
     textConsultaAPI.style="border:1px solid #dee2e6";
@@ -98,15 +100,18 @@ async function enviarConsultaAPI(){
                 textConsultaAPI.disabled=false;
                 btnEnviarMensajeAI.disabled=false;
             }
+            console.log("resultado",resultado );
             const chatIA= document.createElement('div');
             let cadenaIA=`<h6>IA</h6>
-                        <p>${resultado}</p>`;
+                        <pre>${resultado}</pre>`;
+
             chatIA.classList.add("chat-ia");
             chatIA.innerHTML=cadenaIA;
             spinnerloader.remove();
             chatContent.appendChild(chatIA);
             btnEnviarMensajeAI.disabled=false;
             textConsultaAPI.disabled=false;
+          
             cargarScrollChatFinal();
             /*local storage */
             
@@ -115,11 +120,14 @@ async function enviarConsultaAPI(){
                 person: textConsultaAPI.value,
                 iarespuesta: resultado
             };
+            
             arrayStorageChat=[...arrayStorageChat, itemStorage];
             let arrayStringStorge= JSON.stringify(arrayStorageChat);
+
             if(keyStorage!=""){
                 localStorage.setItem(keyStorage,arrayStringStorge);
             }
+            textConsultaAPI.value="";
             
         }
     }catch(error){
@@ -130,6 +138,7 @@ async function enviarConsultaAPI(){
 }
 
 function cargarStorageChat(){
+    console.log("local storga get", getElementosStorage);
    let itemChat= localStorage.getItem(keyStorage);
    
     if(itemChat){
@@ -145,7 +154,7 @@ function cargarStorageChat(){
                     </div></div>
                     <div class="chat-ia">
                             <h6>IA</h6>
-                           <p>${itemChatparse[i].iarespuesta}</p> 
+                           <pre>${itemChatparse[i].iarespuesta}</pre> 
                     </div>`;
      }
         chatContent.innerHTML=cadena;
@@ -179,7 +188,9 @@ function limpiarChatIA(){
 }
 
 function cargarScrollChatFinal(){
-    chatContent.scrollTop=chatContent.scrollHeight;
+    console.log("scroolheigth",chatContent.scrollHeight);
+    let scroollheight= chatContent.scrollHeight;
+    chatContent.scrollTop=scroollheight;
 }
 
 /*tab ENVIO DE IMAGE */

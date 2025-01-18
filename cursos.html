@@ -10,9 +10,10 @@
 
     <link   rel="stylesheet" href="./css/bootstrap.css" >
     <link rel="stylesheet" href="./css/estilos.css" >
-    <link   rel="stylesheet" href="./css/bootstrap.min.css" >
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link   rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" >
+    <link rel="stylesheet" href="./css/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./css/animate.min.css" >
+    <link rel="icon" type="image/jpeg" href="./images/favicon/favi.jpg">
 </head>
 <body>
 
@@ -100,12 +101,9 @@
                               <div class="col-12 col-sm-12 col-md-12 col-lg-12" style="display: none;">
                                   <h2 class="title-chatgpt-chat">Chat con IA - ChatGpt</h2>
                               </div>
-                              <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                                <input type="text" class="form-control" id="pregunta" placeholder="Escribe una pregunta ?" >
-                              </div>
+                             
                               <div class="col-12 col-sm-12 col-md-12 col-lg-6" id="btn-chat-tabs">
-                                <button type="button" class="btn btn-primary" id="enviar-consulta">
-                                  <i class="bi-send"></i> Enviar</button>
+
                                 <button type="button" class="btn btn-danger" id="btn-limpar-chat"><i class="bi-trash-fill"></i> Limpiar Chat</button>
                                 <a  href="./index.html" class="btn btn-success" id="btn-ver-cursos" >
                                   Ver cursos</a>
@@ -134,6 +132,13 @@
                                     
                                 </div>
                             </div>
+                            <div class="row row-consulta">
+                            <div class="col-12 content-chat-consulta"  id="content-chat-consulta">
+                              <input type="text" class="form-control" id="pregunta" placeholder="Escribe una pregunta ?" >
+                              <button type="button" class="btn btn-primary" id="enviar-consulta">
+                                <i class="bi-send"></i> Enviar</button>
+                            </div>
+                          </div>
 
                         </div>
 
@@ -144,6 +149,9 @@
                       
                         <div class="content-chat-image">
                             <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <label class="form-label label-image" >Selecciona una imagen en formato png o jpg y que sea menor de 6MB </label>
+                              </div>
                                 <div class="col-12 col-sm-12 col-md-6">
                                   <input type="file" class="form-control" id="fileImage" >
                                 </div>
@@ -154,6 +162,7 @@
                             </div>
 
                             <div class="row rowflexchat">
+                                
                                 <div class="col-12 col-sm-12 col-md-12 content-imageload" id="content-imageload">
                                     <img src="./images/pixabay-ventajas/ventaja4.jpg" alt="imageload" id="imgloadImage" />
                                 </div>
@@ -176,8 +185,8 @@
                               </div>
                              <div class="col-12">
                               <div class="chat-image">
-                                  <var id="texto-chatImage" class="texto-chatImage">
-                                  </var>
+                                  <pre id="texto-chatImage" class="texto-chatImage">
+                                  </pre>
                               </div>
                              </div>
 
@@ -197,7 +206,7 @@
         <!-- <div class="publicidad" id="scroll"></div> -->
         
         <footer class="footer" >
-          <p class="footer-mensaje">&#169; 2025. Todos los derechos reservados.</p>
+          <p class="footer-mensaje">&#169; 2025, aprendiendoconia-chatgpt.com. Todos los derechos reservados.</p>
         </footer>
     </div>
     
