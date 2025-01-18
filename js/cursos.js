@@ -15,7 +15,7 @@ const idcurso = urlParams.get('idCurso')
 console.log(idcurso);
 
 const btnEnviarMensajeAI=document.querySelector("#enviar-consulta");
-const urlAPI='http://webapitest.aprendiendoconia-chatgpt.com/';
+const urlAPI='https://webapitest.aprendiendoconia-chatgpt.com/';
 const textConsultaAPI=document.querySelector("#pregunta");
 const chatContent=document.querySelector("#chatAI-content");
 const limpiarChat=document.querySelector("#btn-limpar-chat");
