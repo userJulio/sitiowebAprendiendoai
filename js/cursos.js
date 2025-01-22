@@ -198,6 +198,7 @@ const fileImage=document.querySelector("#fileImage");
 const btnEnviarImage=document.querySelector("#enviar-imageIA");
 const txtPreguntaImage=document.querySelector("#text-preguntaImage");
 const respuestaIA=document.querySelector("#texto-chatImage");
+const chatImageDiv=document.querySelector(".chat-image");
 
 function encodeImageFileAsURL() {
 
@@ -268,6 +269,12 @@ function validarTipoArchivo(archivo){
     return true;
 }
 
+function cargarSpinnerCargaImage(){
+    const spinner= document.createElement('span');
+    spinner.classList.add("loaderSpinner");
+    chatImageDiv.appendChild(spinner);
+}
+
 
 
 async function enviarImageAPI(){
@@ -291,6 +298,10 @@ try{
         alert("Falta completar los campos en rojo");
         return;
     }
+    cargarSpinnerCargaImage();
+    const spinnerloader=document.querySelector(".loaderSpinner");
+    txtPreguntaImage.disabled=true;
+    btnEnviarImage.disabled=true;
 
     let urluploadImage=`${urlAPI}subir-imagen`;
     const urlPostImagePost= new  Request(urluploadImage);
@@ -305,6 +316,9 @@ try{
 
     if(!datauploadImage){
         alert("No se cargo correctamente la imagen");
+        txtPreguntaImage.disabled=false;
+        btnEnviarImage.disabled=false;
+        spinnerloader.remove();
         return false;
     }
 
@@ -333,12 +347,17 @@ try{
             const response= await fetch(urlPostImage,optionsImage);
             const data= await response.json();
             if(data){
+                
+                txtPreguntaImage.disabled=false;
+                btnEnviarImage.disabled=false;
+                spinnerloader.remove();
                 let resultadoMensaje= data.resultadoIA.content;
                 if(resultadoMensaje!=="" && resultadoMensaje){
                     respuestaIA.innerHTML=resultadoMensaje;
                 }else{
                     respuestaIA.innerHTML="No se encontro nada acerca del tema";
                 }
+                
             }
         }
     }
