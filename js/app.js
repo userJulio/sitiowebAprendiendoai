@@ -80,7 +80,7 @@ let cadena='';
                             <h5 class="card-title title-curso-card">${cursosApi[i].nombre}</h5>
                             <p class="card-text desripction-card">${cursosApi[i].descripcion}</p>
                             <div class="btn-content">
-                            <a href="${urlCurso}" class="btn btn-secondary">Empieza ya !!</a>
+                            <a href="${urlCurso}" class="btn btn-secondary">Chatting con IA !!</a>
                             </div>
                           </div>
                         </div>`;
@@ -96,7 +96,7 @@ function MenuDesplegable(){
     
     for(let i=0;i<cursosApi.length;i++){
         let urlCurso=`cursos.html?idCurso=${cursosApi[i].id}`;
-        cadena+=` <li><a href="${urlCurso}">${cursosApi[i].nombre}</a></li>`;
+        cadena+=` <li><a href="${urlCurso}">${cursosApi[i].nombre} con IA</a></li>`;
     }
     if(ulmenudesplegable){
         ulmenudesplegable.innerHTML=cadena;
